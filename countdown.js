@@ -14,16 +14,17 @@ const countdown = function(_config) {
     tarmin = parseInt(tarTime[1]);
   }
 
-  let months = [31, new Date().getFullYear() % 4 == 0 ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-  let dateNow = new Date();
-  let dayNow = dateNow.getDate();
-  let monthNow = dateNow.getMonth() + 1;
-  let yearNow = dateNow.getFullYear();
-  let hourNow = dateNow.getHours();
-  let minNow = dateNow.getMinutes();
-  let count_day = 0, count_hour = 0, count_min = 0;
-  let count_day_isSet = false;
-  let isOver = false;
+  // let months = [31, new Date().getFullYear() % 4 == 0 ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  //
+  //let dateNow = new Date();
+  // let dayNow = dateNow.getDate();
+  // let monthNow = dateNow.getMonth() + 1;
+  // let yearNow = dateNow.getFullYear();
+  // let hourNow = dateNow.getHours();
+  // let minNow = dateNow.getMinutes();
+  // let count_day = 0, count_hour = 0, count_min = 0;
+  // let count_day_isSet = false;
+  // let isOver = false;
 
   // Set the date we're counting down to
   const countDownDate = new Date(year, month-1, day, tarhour, tarmin, 0, 0).getTime();
@@ -46,16 +47,23 @@ const countdown = function(_config) {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    requestAnimationFrame(updateTime);
+    // requestAnimationFrame(updateTime);
 
-    $(_config.target+' .day .num').innerHTML = addZero(days);
-    $(_config.target+' .hour .num').innerHTML = addZero(hours);
-    $(_config.target+' .min .num').innerHTML = addZero(minutes);
-    $(_config.target+' .sec .num').innerHTML = addZero(seconds);
+    // $(_config.target+' .day .num').innerHTML = addZero(days);
+    // $(_config.target+' .hour .num').innerHTML = addZero(hours);
+    // $(_config.target+' .min .num').innerHTML = addZero(minutes);
+    // $(_config.target+' .sec .num').innerHTML = addZero(seconds);
 
     // If the count down is over, write some text
     if (distance < 0) {
-      $(".countdown").innerHTML = "EXPIRED";
+      $(".countdown").innerHTML = "<h1>SHOWTIME!</h1>";
+    } else {
+      requestAnimationFrame(updateTime);
+      $(_config.target+' .day .num').innerHTML = addZero(days);
+      $(_config.target+' .hour .num').innerHTML = addZero(hours);
+      $(_config.target+' .min .num').innerHTML = addZero(minutes);
+      $(_config.target+' .sec .num').innerHTML = addZero(seconds);
+
     }
   }
 
@@ -63,3 +71,11 @@ const countdown = function(_config) {
 }
 
 const addZero = (x) => (x < 10 && x >= 0) ? "0"+x : x;
+
+const mylittlething_countdown = new countdown({
+  target: '.countdown',
+  dayWord: ' days',
+  hourWord: ' hours',
+  minWord: ' mins',
+  secWord: ' secs'
+});
