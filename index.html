@@ -49,6 +49,7 @@
 
     body {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       flex-wrap: row;
@@ -60,7 +61,6 @@
 
     .wrapper {
       text-align: center;
-      border: solid white 2px;
 
     }
 
@@ -105,11 +105,11 @@
 </head>
 
 <body>
+  <h1>Countdown to showtime!</h1>
   <div class="wrapper">
-    <h1>Countdown to showtime!</h1>
 
 <!-- Insert countdown date (dd-mm-yyy) and time (24 hr) here -->
-    <div class="countdown" data-date="5-11-2021" data-time="14:16">
+    <div class="countdown" data-date="5-11-2021" data-time="14:25">
       <div class="day"><span class="num"></span><span class="word"></span></div>
       <div class="hour"><span class="num"></span><span class="word"></span></div>
       <div class="min"><span class="num"></span><span class="word"></span></div>
