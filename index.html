@@ -35,6 +35,7 @@
   <!-- Firefox, Chrome, Safari, IE 11+ and Opera. 196x196 pixels in size. -->
   <link rel="icon" href="">
   <style type="text/css">
+    @import url(https://fonts.googleapis.com/css?family=Montserrat);
     ::-webkit-scrollbar {
       width: 6px;
     }
@@ -54,7 +55,7 @@
       align-items: center;
       flex-wrap: row;
       height: 100vh;
-      font-family: sans-serif;
+      font-family: "Monserrat";
       background-color: #202629;
       margin: 0;
     }
@@ -65,7 +66,8 @@
     }
 
     h1 {
-      color: #8a99ab; 
+      color: #FDB731; 
+      font-size: 100px;
     }
     h2{
       color: #8a99ab;  
@@ -79,7 +81,7 @@
     .countdown .hour,
     .countdown .min,
     .countdown .sec {
-      color: lime;
+      color: #FDB731;
       padding: 1vw 3vw;
       text-align: center;
     }
@@ -108,11 +110,11 @@
 </head>
 
 <body>
-  <h2>Countdown</h2>
+
   <div class="wrapper">
 
 <!-- Insert countdown date (dd-mm-yyy) and time (24 hr) here -->
-    <div class="countdown" data-date="8-11-2021" data-time="11:07">
+    <div class="countdown" data-date="8-11-2021" data-time="11:19">
       <div class="day"><span class="num"></span><span class="word"></span></div>
       <div class="hour"><span class="num"></span><span class="word"></span></div>
       <div class="min"><span class="num"></span><span class="word"></span></div>

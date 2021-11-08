@@ -56,7 +56,7 @@ const countdown = function(_config) {
 
     // If the count down is over, write some text
     if (distance < 0) {
-      $(".countdown").innerHTML = "<h1>SHOWTIME!</h1>";
+      $(".countdown").innerHTML = "<h1>Showtime!</h1>";
     } else {
       requestAnimationFrame(updateTime);
       $(_config.target+' .day .num').innerHTML = addZero(days);
