@@ -1,3 +1,4 @@
+<head>
 <style>
 	@import url(https://fonts.googleapis.com/css?family=Montserrat);::-webkit-scrollbar {
 		width: 6px;
@@ -74,6 +75,8 @@
 
 <!-- TITLE -->
 <title>Countdown</title>
+<script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+</head>
 
 <div class="wrapper">
 
@@ -85,9 +88,11 @@
 		<div class="sec"><span class="num">43</span><span class="word"> secs</span></div>
 	</div>
 </div>
-<script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+
 
 <script>
+
+
 	const $ = elem => document.querySelector(elem);
 
 	const countdown = function(_config)
@@ -116,13 +121,9 @@
 
 		const updateTime = () =>
 		{
-      var utc = require('dayjs/plugin/utc');
-      var timezone = require('dayjs/plugin/timezone');
-      dayjs.extend(utc)
-      dayjs.extend(timezone)
 
-			let now = new Date().getTime();
-      let now = dayjs.tz(now, "America/Chicago");
+			let current = new Date().getTime();
+      let now = dayjs.tz(current, "America/Chicago");
 
 			const distance = countDownDate - now;
 
