@@ -75,24 +75,28 @@
 
 <!-- TITLE -->
 <title>Countdown</title>
+
 <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+<script src="https://unpkg.com/dayjs@1.8.21/plugin/utc.js"></script>
+<script src="https://unpkg.com/date-time-format-timezone@latest/build/browserified/date-time-format-timezone-complete-min.js"></script>
+
 </head>
 
+<body>
 <div class="wrapper">
 
 	<!-- Insert countdown date (dd-mm-yyy) and time (24 hr) here -->
 	<div class="countdown" data-date="9-11-2021" data-time="13:52">
-		<div class="day"><span class="num">00</span><span class="word"> days</span></div>
-		<div class="hour"><span class="num">03</span><span class="word"> hours</span></div>
-		<div class="min"><span class="num">53</span><span class="word"> mins</span></div>
-		<div class="sec"><span class="num">43</span><span class="word"> secs</span></div>
+		<div class="day"><span class="num"></span><span class="word"> days</span></div>
+		<div class="hour"><span class="num"></span><span class="word"> hours</span></div>
+		<div class="min"><span class="num"></span><span class="word"> mins</span></div>
+		<div class="sec"><span class="num"></span><span class="word"> secs</span></div>
 	</div>
 </div>
 
 
 <script>
-
-
+  
 	const $ = elem => document.querySelector(elem);
 
 	const countdown = function(_config)
@@ -118,13 +122,10 @@
 		$(_config.target + ' .hour .word').innerHTML = _config.hourWord;
 		$(_config.target + ' .min .word').innerHTML = _config.minWord;
 		$(_config.target + ' .sec .word').innerHTML = _config.secWord;
-
+    
 		const updateTime = () =>
 		{
-
-			let current = new Date().getTime();
-      let now = dayjs.tz(current, "America/Chicago");
-
+      const now = Date.now();
 			const distance = countDownDate - now;
 
 			const days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -160,3 +161,5 @@
 	});
 
 </script>
+<script src="countdown.js"></script>
+</body>
